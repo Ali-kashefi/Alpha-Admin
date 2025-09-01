@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import List_li from "./ui/List_li";
 import { AiFillProduct } from "react-icons/ai";
 import { LiaEdit, LiaFileInvoiceSolid } from "react-icons/lia";
@@ -10,8 +10,9 @@ import { RiInformationLine } from "react-icons/ri";
 import { TbReportSearch } from "react-icons/tb";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { IoStatsChartSharp } from "react-icons/io5";
+import useOutsideClick from "@/hook/useOutsideClick";
 
-function Sidebar({ open }) {
+function Sidebar({ Isopen, setIsopen }) {
   const listvalue = [
     <AiFillProduct className="w-16 h-7 " />,
     <LiaEdit className="w-16 h-7  " />,
@@ -26,10 +27,11 @@ function Sidebar({ open }) {
     <FaPeopleGroup className="w-16 h-7 " />,
     <IoStatsChartSharp className="w-16 h-7 " />,
   ];
+    const ref = useOutsideClick(() => setIsopen(false));
 
-  return open ? (
+  return Isopen ? (
     <>
-      <div className="bg-primary-50 h-full w border-l-1 border-primary-300 border-r-1  "></div>
+      <div ref={ref} className="bg-primary-50 h-full w border-l-1 border-primary-300 border-r-1  "></div>
     </>
   ) : (
     <aside className="bg-primary-50 h-full w-20 border-l-1 border-primary-300 border-r-1 justify-self-end">
