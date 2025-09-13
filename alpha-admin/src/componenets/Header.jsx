@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Button from "./ui/Button";
 import { useThemeStore } from "@/store/themeStore";
 import Image from "next/image";
@@ -9,17 +9,22 @@ import {
   SunIcon,
 } from "@heroicons/react/24/outline";
 import SearchBox from "./SearchBox";
-function Header({setIsopen}) {
+import Languageswitcher from "./Languageswitcher";
+import { usePathname } from "next/navigation"; 
+
+function Header({ setIsopen }) {
   const currentTheme = useThemeStore((state) => state.Theme);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
   const handleToggle = () => {
     toggleTheme();
   };
+  
+  const pathname = usePathname();
 
   return (
     <div>
-      <header className="w-full h-20 bg-primary-50  p-4  flex flex-row justify-between border-b-1 border-primary-300">
-        <ul className="flex flex-row gap-3 flex-nowrap ">
+      <header className="w-full h-20 bg-primary-50 p-4 flex flex-row justify-between border-b-1 border-primary-300">
+        <ul className="flex flex-row gap-3 flex-nowrap">
           <li>
             <Image
               src={"/image/download2.png"}
@@ -38,10 +43,8 @@ function Header({setIsopen}) {
               )}
             </Button>
           </li>
-          <li className="flex justify-center items-center w-12 h-12 border  border-primary-300 rounded-full">
-            <Button onClick={handleToggle} className=" text-primary-400">
-              {currentTheme === "dark" ? "En" : "فا"}
-            </Button>
+          <li className="flex justify-center items-center w-12 h-12 border border-primary-300 rounded-full">
+            <Languageswitcher key={pathname} /> 
           </li>
         </ul>
         <div className="flex flex-row-reverse gap-4">
