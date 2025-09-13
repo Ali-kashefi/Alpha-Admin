@@ -1,31 +1,9 @@
 @import "tailwindcss";
+
 @font-face {
   font-family: "Vazir";
-  src: url("../../public/fonts/vazir/Vazirmatn-Regular.woff2")
-    format("woff2");
+  src: url("../../public/fonts/vazir/Vazirmatn-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Vazir";
-  src: url("../../public/fonts/vazir/Vazirmatn-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Vazir";
-  src: url("../../public/fonts/vazir/Vazirmatn-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Vazir";
-  src: url("../../public/fonts/vazir/Vazirmatn-ExtraBold.woff2")
-    format("woff2");
-  font-weight: 800;
   font-style: normal;
 }
 
@@ -37,39 +15,48 @@
 }
 
 :root {
-  
- 
   --font-display: "Vazir", sans-serif;
+  --color-primary-800: #1e2939;
+  --color-primary-700: #364153;
+  --color-primary-600: #4a5565;
+  --color-primary-500: #6a7282;
+  --color-primary-400: #99a1af;
+  --color-primary-300: #d1d5dc;
+  --color-primary-200: #e5e7eb;
+  --color-primary-100: #e5e7eb;
+  --color-primary-50: #ffffff;
+  --color-light-200:#539dfc;
+  --color-light-100:#8eb8ed;
 }
-:root {
-  --font-display: "Vazir", sans-serif;
-  
-}
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-light-200:#539dfc;
+  --color-light-100:#8eb8ed;  
+  --color-primary-800: #1e2939;
+  --color-primary-700: #364153;
+  --color-primary-600: #4a5565;
+  --color-primary-500: #6a7282;
+  --color-primary-400: #99a1af;
+  --color-primary-300: #d1d5dc;
+  --color-primary-200: #e5e7eb;
+  --color-primary-100: #e5e7eb;
+  --color-primary-50: #ffffff;
+
 }
 
-
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-    --font-display: "Vazir", sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+   --color-primary-800: #171c26;
+  --color-primary-700: #1e2532;
+  --color-primary-600: #2c3241;
+  --color-primary-500: #7e8ba8;
+  --color-primary-400: #64a5ff;
+  --color-primary-300: #5d87ff;
+  --color-primary-200: #5890ff;
+  --color-primary-100: #222a3a;
+  --color-primary-50: #b6c2cf;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family:  "Vazir", sans-serif;
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-);
+  font-family: var(--font-display);
 }
-@custom-variant dark (&:where(.dark, .dark *));
