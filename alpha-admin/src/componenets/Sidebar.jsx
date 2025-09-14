@@ -61,6 +61,13 @@ function Sidebar({ Isopen, setIsopen }) {
     }
     return combinedArray;
   }
+  //Converting a combineArrays array to send to the Lists component
+  const generateMenuItems = combineArrays(listicon, Keys);
+  const test = generateMenuItems.map((item) => {
+    return [item.title, item.icons];
+  });
+  
+  
   
   //Calling and passing parameters to the hook
   const ref = useOutsideClick(() => setIsopen(false));
