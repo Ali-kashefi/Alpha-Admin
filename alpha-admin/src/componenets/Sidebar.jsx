@@ -50,6 +50,17 @@ function Sidebar({ Isopen, setIsopen }) {
   const Keys = titlekeys.map((i) => {
     return t(`sidebar.${i}`);
   });
+  //Merge titles and icons in index order
+  function combineArrays(icons, title) {
+    const combinedArray = [];
+    for (let i = 0; i < listicon.length; i++) {
+      combinedArray.push({
+        icons: icons[i],
+        title: title[i],
+      });
+    }
+    return combinedArray;
+  }
   
   //Calling and passing parameters to the hook
   const ref = useOutsideClick(() => setIsopen(false));
