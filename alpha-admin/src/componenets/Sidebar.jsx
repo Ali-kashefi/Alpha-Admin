@@ -15,7 +15,7 @@ import useOutsideClick from "@/hook/useOutsideClick";
 import { useTranslation } from "next-i18next";
 
 function Sidebar({ Isopen, setIsopen }) {
-  
+  const { t } = useTranslation();
   //List of icons
   const listicon = [
     <AiFillProduct className="w-16 h-7 " />,
@@ -31,6 +31,25 @@ function Sidebar({ Isopen, setIsopen }) {
     <FaPeopleGroup className="w-16 h-7 " />,
     <IoStatsChartSharp className="w-16 h-7 " />,
   ];
+  //List of Keys
+  const titlekeys = [
+    "dashboard",
+    "edit_product",
+    "stock_inventory",
+    "invoices",
+    "comments",
+    "invoice_status",
+    "customers",
+    "customer_status",
+    "reports",
+    "visits",
+    "customer_reports",
+    "general_statistics",
+  ];
+  //Include values ​​for each key
+  const Keys = titlekeys.map((i) => {
+    return t(`sidebar.${i}`);
+  });
   
   //Calling and passing parameters to the hook
   const ref = useOutsideClick(() => setIsopen(false));
