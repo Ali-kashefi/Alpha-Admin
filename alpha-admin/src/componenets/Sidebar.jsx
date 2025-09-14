@@ -33,8 +33,8 @@ function Sidebar({ Isopen, setIsopen }) {
   ];
   //List of Keys
   const titlekeys = [
-    "dashboard",
-    "edit_product",
+    "Panel",
+    "Products",
     "stock_inventory",
     "invoices",
     "comments",
@@ -77,7 +77,7 @@ function Sidebar({ Isopen, setIsopen }) {
     <aside>
       <div
         ref={ref}
-        className={`bg-primary-50  h-full border-l-1 border-primary-300 border-t-0 border-r-1 p-4
+        className={`bg-primary-50  h-full border-l-1 border-primary-300 border-t-0 border-r-1 
                transition-all duration-3000 ease-in-out `}
       >
         <ul className="flex flex-col items-end space-y-5 space-x-5 dark:bg-secondary-100 ">
