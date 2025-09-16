@@ -8,7 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.0.0",
     "@heroicons/react": "^2.2.0",
+    "axios": "^1.12.2",
     "chart.js": "^4.5.0",
     "clsx": "^2.1.1",
     "heroicons": "^2.2.0",
