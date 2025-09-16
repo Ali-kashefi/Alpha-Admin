@@ -20,7 +20,7 @@ export default function Home() {
   if (isLoading) {
     return <Loading />
   }
- 
+  const usersCount = data?.length || 0;
 
 
 
@@ -39,7 +39,7 @@ export default function Home() {
               <FiUsers className="w-7 h-7 text-primary-600" />
             </div>
             <p className="text-primary-400"> {t("home.Total-sales")}</p>
-            <h2 className=" text-3xl">{useFormatNumberByLanguage(nameCount)}</h2>
+            <h2 className=" text-3xl">{useFormatNumberByLanguage(usersCount)}</h2>
           </div>
           <div className="col-span-1 flex flex-col gap-4 items-end row-span-2 bg-primary-50 rounded-3xl p-4 dark:bg-secondary-200">
             <div className="p-2 rounded-lg bg-primary-100">
