@@ -7,8 +7,9 @@ import useFormatNumberByLanguage from "@/hook/useFormatNumberByLanguage";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function DashboardChart({ invoices }) {
-  const { comparison, change } = calculateWeeklySalesChange(invoices);
+function DashboardChart({ invoices, translate }) {
+  const { comparison, change, currentWeekSales, previousWeekSales } =
+    calculateWeeklySalesChange(invoices);
 
   const darkBlueColor = "#5d87ff";
   const darkerGrayBackground = "#e5e7eb";
@@ -38,11 +39,23 @@ function DashboardChart({ invoices }) {
     maintainAspectRatio: false,
   };
 
-  const formattedChange = change >= 0 ? `+${change.toFixed(1)}` : `${change.toFixed(1)}`;
-  const changeColor = change >= 0 ? "bg-green-500 opacity-50 text-white" : " bg-red-600 opacity-25 text-white";
+  const formattedChange =
+    change >= 0 ? `+${change.toFixed(1)}` : `${change.toFixed(1)}`;
+  const changeColor =
+    change >= 0
+      ? "bg-green-500 opacity-50 text-white"
+      : " bg-red-600 opacity-25 text-white";
+  const current_WeekSales = useFormatNumberByLanguage(
+    currentWeekSales.toFixed(0)
+  );
+  const previous_WeekSales = useFormatNumberByLanguage(
+    previousWeekSales.toFixed(0)
+  );
 
   return (
-    <div style={{ width: "250px", height: "150px", position: "relative" }}>
+    <div style={{ width: "250px", height: "150px", position: "relative" }} className="flex flex-col gap-3">
+   
+
       <Doughnut data={data} options={options} />
       <div
         style={{
@@ -58,11 +71,19 @@ function DashboardChart({ invoices }) {
         <p className={`text-4xl mt-14 font-bold dark:text-white  `}>
           {useFormatNumberByLanguage(comparison.toFixed(1))}%
         </p>
-        <p className={`mt-2 text-sm w-20  rounded-4xl dark:text-white  ${changeColor} `}>
+        <p
+          className={`mt-2 text-sm w-20  rounded-4xl dark:text-white  ${changeColor} `}
+        >
           {useFormatNumberByLanguage(formattedChange)}%
         </p>
-        <p></p>
+       
       </div>
+       <p className=" text-center text-primary-400">
+          {translate("home.weeklySales.0.Weekly_report", {
+            0: current_WeekSales,
+            1: previous_WeekSales ,
+          })}
+        </p>
     </div>
   );
 }
