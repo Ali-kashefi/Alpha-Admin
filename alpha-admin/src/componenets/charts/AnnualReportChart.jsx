@@ -1,4 +1,3 @@
-// AnnualReportChart.js
 "use client";
 
 import { Line } from "react-chartjs-2";
@@ -11,7 +10,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler, // برای پر کردن ناحیه زیر نمودار
+  Filler,
 } from "chart.js";
 
 ChartJS.register(
@@ -43,16 +42,17 @@ export default function AnnualReportChart() {
       {
         label: "Sales",
         data: [180, 192, 168, 158, 175, 165, 170, 205, 220, 240],
-        borderColor: "rgb(59, 130, 246)", // رنگ خط آبی پررنگ
-        backgroundColor: "rgba(59, 130, 246, 0.2)", // رنگ پس‌زمینه ناحیه زیر خط آبی
-        fill: true, // این خط ناحیه زیر نمودار را پر می‌کند
-        tension: 0.4, // انحنای خط
+        borderColor: "rgb(59, 130, 246)",
+        backgroundColor: "rgba(59, 130, 246, 0.2)",
+        fill: true,
+        tension: 0.4,
       },
       {
         label: "Revenue",
         data: [40, 30, 50, 42, 55, 45, 75, 100, 115, 120],
-        borderColor: "rgb(147, 197, 253)", // رنگ خط آبی کمرنگ
-        backgroundColor: "rgba(147, 197, 253, 0.2)", // رنگ پس‌زمینه ناحیه زیر خط آبی کمرنگ
+        borderColor: "rgb(147, 197, 253)",
+        backgroundColor: "rgba(147, 197, 253, 0.2)",
+
         fill: true,
         tension: 0.4,
       },
@@ -63,15 +63,15 @@ export default function AnnualReportChart() {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "top", // موقعیت legend را در بالا تنظیم می‌کند
+        position: "top",
         labels: {
           color: "#fff",
-          usePointStyle: true, // از استایل دایره‌ای برای Legend استفاده می‌کند
+          usePointStyle: true,
         },
       },
       title: {
         display: true,
-        text: "گزارش سالانه", // عنوان نمودار
+        text: "گزارش سالانه",
         color: "#fff",
         font: {
           size: 20,
@@ -83,7 +83,7 @@ export default function AnnualReportChart() {
       tooltip: {
         mode: "index",
         intersect: false,
-        backgroundColor: "rgba(0, 0, 0, 0.7)",
+        backgroundColor: "dark-mode-text",
         titleColor: "#fff",
         bodyColor: "#fff",
         borderColor: "#fff",
@@ -93,34 +93,25 @@ export default function AnnualReportChart() {
     scales: {
       x: {
         grid: {
-          color: "rgba(255, 255, 255, 0.1)", // خطوط عمودی Grid
+          color: "rgba(255, 255, 255, 0.1)",
         },
         ticks: {
-          color: "#888", // رنگ نوشته‌های محور X
+          color: "#888",
         },
       },
       y: {
         grid: {
-          color: "rgba(255, 255, 255, 0.1)", // خطوط افقی Grid
+          color: "rgba(255, 255, 255, 0.1)",
         },
         ticks: {
-          color: "#888", // رنگ نوشته‌های محور Y
+          color: "#888",
         },
       },
     },
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "#1f2937",
-        padding: "20px",
-        borderRadius: "8px",
-        color: "#fff",
-        width: "100%",
-        height: "400px",
-      }}
-    >
+    <div className="dark:bg-gray-800 bg-primary-50 p-5 rounded-lg w-full h-[400px] li ">
       <Line data={data} options={options} />
     </div>
   );
