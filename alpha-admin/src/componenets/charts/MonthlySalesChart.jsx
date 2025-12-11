@@ -68,7 +68,7 @@ export default function MonthlySalesChart({ translate }) {
       title: {
         display: true,
         text: `${translate("cahrts.monthly_sales.0.title")}`,
-        color: "dark-mode-text",
+        color: "#ffffff",
         font: {
           size: 20,
         },
