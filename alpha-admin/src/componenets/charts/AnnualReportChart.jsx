@@ -25,6 +25,8 @@ ChartJS.register(
 );
 
 export default function AnnualReportChart() {
+ 
+
   const data = {
     labels: [
       "Jan",
@@ -58,6 +60,7 @@ export default function AnnualReportChart() {
       },
     ],
   };
+  
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -65,14 +68,14 @@ export default function AnnualReportChart() {
       legend: {
         position: "top",
         labels: {
-          color: "#fff",
+          color: "",
           usePointStyle: true,
         },
       },
       title: {
         display: true,
         text: "گزارش سالانه",
-        color: "#fff",
+        color: "",
         font: {
           size: 20,
         },
@@ -84,7 +87,7 @@ export default function AnnualReportChart() {
         mode: "index",
         intersect: false,
         backgroundColor: "dark-mode-text",
-        titleColor: "#fff",
+        titleColor: "",
         bodyColor: "#fff",
         borderColor: "#fff",
         borderWidth: 1,
