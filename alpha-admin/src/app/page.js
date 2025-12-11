@@ -3,6 +3,7 @@
 import AnnualReportChart from "@/componenets/charts/AnnualReportChart";
 import DashboardChart from "@/componenets/charts/Dashboard";
 import MonthlySalesChart from "@/componenets/charts/MonthlySalesChart";
+import DashboardRecentOrders from "@/componenets/dashboard/DashboardRecentOrders";
 import Loading from "@/componenets/ui/Loading";
 import useFormatNumberByLanguage from "@/hook/useFormatNumberByLanguage";
 import useGetData from "@/hook/useGetdata";
@@ -51,14 +52,14 @@ export default function Home() {
           </div>
 
           <div className="col-span-1 flex flex-col  gap-4  items-end row-span-4 bg-primary-50 dark:bg-secondary-600 rounded-3xl p-4">
-            <div className="p-2 rounded-lg bg-primary-100">
+            <div className="p-2 rounded-3xl bg-primary-100">
               <FaDollarSign className="w-7 h-7 text-primary-600" />
             </div>
             <p className="text-primary-400"> {t("home.total_sales")}</p>
             <h2 className=" text-3xl dark:text-white ">{useFormatNumberByLanguage(total_sales.toLocaleString('en-US'))}</h2>
           </div>
           <div className="col-span-1 flex flex-col gap-4 items-end row-span-4 bg-primary-50 rounded-3xl p-4 dark:bg-secondary-600">
-            <div className="p-2 rounded-lg bg-primary-100">
+            <div className="p-2 rounded-3xl bg-primary-100">
               <FiUsers className="w-7 h-7 text-primary-600" />
             </div>
             <p className="text-primary-400"> {t("home.customer")}</p>
@@ -69,11 +70,17 @@ export default function Home() {
           </div>
 
 
+
         </section>
-        <div className=" bg-primary-50 rounded-3xl  dark:bg-secondary-600 mt-6">
+        <div className=" bg-primary-50 rounded-3xl  dark:bg-secondary-600  mt-6">
           <AnnualReportChart />
         </div>
-
+        <div>
+          {/* Recent Orders */}
+          <div className="grid grid-cols-3 h-96 p-4   ">
+            <DashboardRecentOrders className={"col-span-2 rounded-3xl p-4  bg-primary-50  dark:bg-secondary-600 h-full"} />
+          </div>
+        </div>
 
       </main>
     </div>
